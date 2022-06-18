@@ -3,11 +3,11 @@ package com.bridgelabz;
 public class EmployeeWage {
     public static void main(String args[]) {
 
-        double empAttendance = Math.floor(Math.random() * 10) % 2 ;
-        if (empAttendance==0){
-            System.out.println("Employee is present.");
-        }else if (empAttendance==1)
-            System.out.println("Employee is absent");
+        int WAGE_PER_HR = 20;
+        int WORKING_HRS = 8;
+
+        int dailyWage=WAGE_PER_HR*WORKING_HRS;
+        System.out.println("Daily wage of Employee is: " + dailyWage);
 
     }
 
