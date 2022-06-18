@@ -2,7 +2,13 @@ package com.bridgelabz;
 
 public class EmployeeWage {
     public static void main(String args[]) {
-        //Welcome Message.
-        System.out.println("Welcome into the playground of coding,Line comparison computation is the first one.");
+
+        double empAttendance = Math.floor(Math.random() * 10) % 2 ;
+        if (empAttendance==0){
+            System.out.println("Employee is present.");
+        }else if (empAttendance==1)
+            System.out.println("Employee is absent");
+
     }
+
 }
