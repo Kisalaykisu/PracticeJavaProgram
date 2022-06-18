@@ -17,5 +17,6 @@ public class EmployeeWage {
         int empWage = empHrs * WAGE_PER_HR;
         System.out.println("Employee wage is: " + empWage);
 
+
     }
 }
