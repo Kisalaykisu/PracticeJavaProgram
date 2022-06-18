@@ -15,7 +15,6 @@ public class EmployeeWage {
 
         employeeWage();
 
-
     }
     public static void employeeWage(){
         for ( i=0;i<20 && workedHrs<totalWorkingHrs;i++) {
