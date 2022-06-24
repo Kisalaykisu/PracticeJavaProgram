@@ -1,11 +1,8 @@
 /*
-    Ability to manage EmployeeWage of multiple
-     companies - Note: Refactor to have one
-     EmpWageBuilder to manage for Wage
-     for multiple Company
-     - Create CompanyEmpWage class and let
-     EmpWageBuilder has array of many
-    CompanyEmpWage Object.
+    Ability to manage Employee Wage of multiple companies using
+Interface approach - Note: Refactor to have one
+EmpWageBuilder to implement
+Interface
 */
 
 package com.bridgelabz;
@@ -13,36 +10,42 @@ package com.bridgelabz;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class EmployeeWage {
+public class EmployeeWage implements WageBuilder {
     static final int IS_FULL_TIME = 1;
-    static final int IS_PART_TIME=2;
+    static final int IS_PART_TIME = 2;
     int wagePerHr;
     int empHrs = 0;
     int monthlyWage = 0;
     int totalWorkingHrs;
     int totalWorkingDays;
-    int workedHrs=0;
+    int workedHrs = 0;
     static int i;
     static int company1TotalWage;
     static int company2TotalWage;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
+        EmployeeWage mainObj = new EmployeeWage();
+        mainObj.compEmpWageArray();
+
+        WageBuilder interfaceObj = new EmployeeWage();
+        interfaceObj.empWageBuilder();
+    }
+    public void compEmpWageArray() {
         EmployeeWage company1 = new EmployeeWage();
         EmployeeWage company2 = new EmployeeWage();
 
-        company1TotalWage=company1.empWageBuilder();
+        company1TotalWage = company1.empWageBuilder();
         System.out.println("Employee wage for company1: " + company1TotalWage);
-        company2TotalWage=company2.empWageBuilder();
+        company2TotalWage = company2.empWageBuilder();
         System.out.println("Employee wage for company2: " + company2TotalWage);
 
         EmployeeWage[] companyEmpWageArray = new EmployeeWage[2];
-        companyEmpWageArray[0]=company1;
-        companyEmpWageArray[1]=company2;
+        companyEmpWageArray[0] = company1;
+        companyEmpWageArray[1] = company2;
         System.out.println(Arrays.toString(companyEmpWageArray));
     }
-
-    public int empWageBuilder(){
+    public int empWageBuilder() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the wage_per_hr: ");
         wagePerHr = scanner.nextInt();
@@ -51,7 +54,7 @@ public class EmployeeWage {
         System.out.println("Enter the total working hrs in a month: ");
         totalWorkingHrs = scanner.nextInt();
 
-        for ( i=0;i<totalWorkingDays && workedHrs<totalWorkingHrs;i++) {
+        for (i = 0; i < totalWorkingDays && workedHrs < totalWorkingHrs; i++) {
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
             switch (empCheck) {
                 case IS_FULL_TIME -> empHrs = 8;
@@ -59,11 +62,14 @@ public class EmployeeWage {
             }
             int empWage = empHrs * wagePerHr;
             System.out.println("Employee wage is: " + empWage);
-            monthlyWage+=empWage;
-            workedHrs+=empHrs;
+            monthlyWage += empWage;
+            workedHrs += empHrs;
         }
         System.out.println("Employee Monthly wage is: " + monthlyWage);
         System.out.println("Working Days = " + i + ", Total working hrs = " + workedHrs);
         return monthlyWage;
     }
+}
+interface WageBuilder {
+    int empWageBuilder();
 }
