@@ -1,13 +1,13 @@
 /*
-    Ability to manage Employee Wage of multiple companies using
-Interface approach - Note: Refactor to have one
-EmpWageBuilder to implement
-Interface
+    Refactor to have list of multiple companies to
+    manage Employee Wage.
+- Note: Refactor to use ArrayList
+instead of array
 */
 
 package com.bridgelabz;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EmployeeWage implements WageBuilder {
@@ -40,10 +40,9 @@ public class EmployeeWage implements WageBuilder {
         company2TotalWage = company2.empWageBuilder();
         System.out.println("Employee wage for company2: " + company2TotalWage);
 
-        EmployeeWage[] companyEmpWageArray = new EmployeeWage[2];
-        companyEmpWageArray[0] = company1;
-        companyEmpWageArray[1] = company2;
-        System.out.println(Arrays.toString(companyEmpWageArray));
+        ArrayList<EmployeeWage> companyEmpWageArrayList = new ArrayList<>();
+        companyEmpWageArrayList.add(company1);
+        companyEmpWageArrayList.add(company2);
     }
     public int empWageBuilder() {
         Scanner scanner = new Scanner(System.in);
