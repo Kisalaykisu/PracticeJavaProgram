@@ -1,9 +1,7 @@
 /*
-    Refactor to have list of multiple companies to
-    manage Employee Wage.
-- Note: Refactor to use ArrayList
-instead of array
-*/
+   Store the Daily Wage along with the Total Wage.
+ */
+
 
 package com.bridgelabz;
 
