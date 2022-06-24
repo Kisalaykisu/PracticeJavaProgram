@@ -1,6 +1,8 @@
-/*Compute Employee Wage for multiple companies
- - Note: Each Company has its own wage, number of working days and working hours per month
-- Use Class Method with function parameters instead of Class Variables
+/*
+    Ability to save the Total Wage for Each Company - Note: You can Create
+    EmpWageBuilder for each Company
+    - Use Instance Variable instead of
+      function parameters
 */
 
 package com.bridgelabz;
@@ -17,19 +19,20 @@ public class EmployeeWage {
     int totalWorkingDays;
     int workedHrs=0;
     static int i;
+    static int company1TotalWage;
+    static int company2TotalWage;
 
     public static void main(String[] args){
 
         EmployeeWage company1 = new EmployeeWage();
         EmployeeWage company2 = new EmployeeWage();
 
-        System.out.println("Employee wage for company1: ");
-        company1.employeeWage();
-        System.out.println("Employee wage for company2: ");
-        company2.employeeWage();
-
+        company1TotalWage=company1.employeeWage();
+        System.out.println("Employee wage for company1: " + company1TotalWage);
+        company2TotalWage=company2.employeeWage();
+        System.out.println("Employee wage for company2: " + company2TotalWage);
     }
-    public void employeeWage(){
+    public int employeeWage(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the wage_per_hr: ");
         wagePerHr = scanner.nextInt();
@@ -51,6 +54,6 @@ public class EmployeeWage {
         }
         System.out.println("Employee Monthly wage is: " + monthlyWage);
         System.out.println("Working Days = " + i + ", Total working hrs = " + workedHrs);
+        return monthlyWage;
     }
-
 }
