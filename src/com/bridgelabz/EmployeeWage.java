@@ -1,8 +1,11 @@
 /*
-    Ability to save the Total Wage for Each Company - Note: You can Create
-    EmpWageBuilder for each Company
-    - Use Instance Variable instead of
-      function parameters
+    Ability to manage EmployeeWage of multiple
+     companies - Note: Refactor to have one
+     EmpWageBuilder to manage for Wage
+     for multiple Company
+     - Create CompanyEmpWage class and let
+     EmpWageBuilder has array of many
+    CompanyEmpWage Object.
 */
 
 package com.bridgelabz;
